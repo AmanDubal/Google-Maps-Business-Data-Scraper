@@ -132,7 +132,7 @@ export default function ProgressDashboard({ keyword, cities, onComplete }) {
           type: 'timeout',
           message: 'Connection timeout',
           details: 'Could not connect to the server within 10 seconds',
-          suggestion: 'Check if the backend server is running on http://localhost:8000',
+          suggestion: 'Check if the backend server is running on http://NEXT_PUBLIC_API_URL',
           canRetry: true
         };
         break;
