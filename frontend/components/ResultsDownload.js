@@ -4,8 +4,10 @@ export default function ResultsDownload({ results, keyword }) {
   const handleDownload = (type) => {
     const filename = type === 'csv' ? results.csv_file : results.excel_file;
     const fileNameOnly = filename.split('/').pop();
-    window.open(`http://localhost:8000/download/${fileNameOnly}`, '_blank');
-  };
+    window.open(
+  `${process.env.NEXT_PUBLIC_API_URL}/download/${fileNameOnly}`,
+  '_blank'
+);
 
   return (
     <div className="max-w-2xl mx-auto text-center">
