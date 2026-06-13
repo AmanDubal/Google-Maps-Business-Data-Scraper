@@ -32,10 +32,11 @@ export default function ProgressDashboard({ keyword, cities, onComplete }) {
     
     try {
       const ws = new WebSocket(
-  process.env.NEXT_PUBLIC_API_URL
-    .replace("https://", "wss://")
-    .replace("http://", "ws://") +
-    "/ws/scrape"
+        process.env.NEXT_PUBLIC_API_URL
+          .replace("https://", "wss://")
+          .replace("http://", "ws://") +
+          "/ws/scrape"
+      );
       wsRef.current = ws;
 
       let connectionTimeout = setTimeout(() => {
