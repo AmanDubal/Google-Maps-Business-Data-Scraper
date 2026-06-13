@@ -145,21 +145,21 @@ export default function UploadForm({ onComplete }) {
           errorInfo = {
             type: 'validation',
             message: 'Invalid file format',
-            details: err.response.data.error || 'The Excel file format is incorrect',
+            details: err.response.data.detail || 'The Excel file format is incorrect',
             suggestion: 'Make sure your Excel file has "City" and "State" columns'
           };
         } else if (err.response.status === 500) {
           errorInfo = {
             type: 'server',
             message: 'Server error',
-            details: 'An error occurred while processing your file',
+            details: err.response.data.detail || 'An error occurred while processing your file',
             suggestion: 'Please check the file format and try again'
           };
         } else {
           errorInfo = {
             type: 'server',
             message: `Server error (${err.response.status})`,
-            details: err.response.data.error || err.message,
+            details: err.response.data.detail || err.message,
             suggestion: 'Please try again or contact support'
           };
         }
